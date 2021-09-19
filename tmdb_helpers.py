@@ -1,8 +1,6 @@
 import urllib.request
 import urllib.parse
-import json
 from getpass import getpass
-import ssl
 import requests
 
 def make_tmdb_api_request(method, api_key, extra_params=None):
