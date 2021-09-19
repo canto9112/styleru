@@ -1,6 +1,5 @@
 from own_db_helpers import load_data
 from collections import OrderedDict
-from pprint import pprint
 
 def find_my_film(keyword, films_data):
     for film in films_data:
