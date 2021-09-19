@@ -1,9 +1,9 @@
 from own_db_helpers import load_data
 from collections import OrderedDict
 
+
 def find_my_film(keyword, films_data):
     for film in films_data:
-
         try:
             if keyword == film['original_title']:
                 return film
@@ -11,6 +11,7 @@ def find_my_film(keyword, films_data):
             continue
 
     return None
+
 
 def get_rating(my_film, films_data, num_to_recommend=8):
     params = {
@@ -38,6 +39,7 @@ def get_rating(my_film, films_data, num_to_recommend=8):
             break
         final_recommendation.append(film)
     return final_recommendation
+
 
 if __name__ == '__main__':
     path = input('Enter path to DataBase:')
