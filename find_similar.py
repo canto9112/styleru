@@ -48,6 +48,7 @@ if __name__ == '__main__':
         print('File not found, sorry...')
         raise SystemExit
     keyword = input('Enter film to search for:')
+    print('========================')
     my_film = find_my_film(keyword, films_data)
     if not my_film:
         print('No such film in FilmsDB')
