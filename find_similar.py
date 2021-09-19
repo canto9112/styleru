@@ -1,10 +1,16 @@
 from own_db_helpers import load_data
 from collections import OrderedDict
+from pprint import pprint
 
 def find_my_film(keyword, films_data):
     for film in films_data:
-        if keyword == film['original_title']:
-            return film
+
+        try:
+            if keyword == film['original_title']:
+                return film
+        except KeyError:
+            continue
+
     return None
 
 def get_rating(my_film, films_data, num_to_recommend=8):
@@ -18,9 +24,13 @@ def get_rating(my_film, films_data, num_to_recommend=8):
     for film in films_data:
         film_rate = 0
         for parameter in params:
-            if film[parameter] == my_film[parameter]:
-                film_rate += params[parameter]
-        rating[film['original_title']] = film_rate
+            try:
+                if film[parameter] == my_film[parameter]:
+                    film_rate += params[parameter]
+            except KeyError:
+                continue
+
+            rating[film['original_title']] = film_rate
     del rating[my_film['original_title']]
     rating = OrderedDict(sorted(rating.items(), key=lambda t: t[1], reverse=True))
     final_recommendation = []
