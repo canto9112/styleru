@@ -4,7 +4,7 @@ import urllib.parse
 from tmdb_helpers import get_user_api_key
 from tmdb_helpers import make_tmdb_api_request
 
-def load_films(user_api_key, films_amount=100):
+def load_films(user_api_key, films_amount=1000):
     all_films = []
     for film_id in range(films_amount):
         try:
